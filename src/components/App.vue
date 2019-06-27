@@ -1,11 +1,13 @@
 <template>
 	<div class="app-container">
 		<!-- Header fixed固定定位，脱离标准流-->
-		<mt-header fixed title="平凡的一天"></mt-header>
+		<mt-header fixed title="愉快的vue学习之旅"></mt-header>
 		<!-- 中间内容 -->
 		
 		<!-- 占位坑一定得有 -->
-		<router-view></router-view>
+		<transition>
+			<router-view></router-view>
+		</transition>
 		
 		<!-- 底部Tabbar -->
 		<nav class="mui-bar mui-bar-tab">
@@ -41,5 +43,20 @@
 	.app-container{
 		padding-top: 40px;
 		padding-bottom: 50px;
+		overflow: hidden;
+	}
+	.v-enter {
+		opacity: 0;
+		transform: translateX(100%);
+	}
+	.v-leave-to{
+		opacity: 0;
+		transform: translateX(-100%);
+		position: absolute;
+	}
+	.v-enter-active, 
+	.v-leave-active{
+		transition: all 0.4s ease;
 	}
 </style>
+ 
